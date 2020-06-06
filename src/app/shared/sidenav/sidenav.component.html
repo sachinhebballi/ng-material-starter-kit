@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="display-1">Angular Material Starter Kit</span
+    >&nbsp;&nbsp;&nbsp;
+    <button mat-button [matMenuTriggerFor]="menu">Menu with items</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+    <button mat-button>Menu 1</button>
+  </mat-toolbar-row>
+  <!-- <mat-toolbar-row>
+    <span>Sub Menu</span>
+  </mat-toolbar-row> -->
+</mat-toolbar>
+
+<mat-sidenav-container class="side-nav-container">  
+  <mat-sidenav #snav opened="mobileQuery.matches ? false : true" [mode]="mobileQuery.matches ? 'over' : 'side'"
+    [fixedInViewport]="mobileQuery.matches">
+    <mat-nav-list [style.marginTop.px]="mobileQuery.matches ? 56 : 0" (click)="mobileQuery.matches && snav.toggle()">
+      <ng-container *ngFor="let menu of menus">
+        <mat-list-item [matTooltip]="menu.text" matTooltipPosition="after">
+          <a [routerLink]="menu.link">
+            <mat-icon>{{menu.icon}}</mat-icon> {{menu.title}}
+          </a>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

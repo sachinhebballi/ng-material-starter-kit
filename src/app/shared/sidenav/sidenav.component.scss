@@ -1,0 +1,45 @@
+@media screen and (min-width: 320px) and (max-width: 1024px) {
+  .desktop {
+    display: none;
+  }
+}
+
+mat-drawer-content {
+  margin-top: 15px;
+}
+
+.mat-expansion-panel-body {
+  padding: 0;
+}
+
+.mat-list-item .mat-icon {
+  vertical-align: text-bottom;
+}
+
+.is-mobile .toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+.app-name a {
+  color: #FFF;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+}
+
+.footer {
+  margin-top: 15px;
+}
+
+.footer-content {
+  margin: 0 auto;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.side-nav-container {
+  min-height: 88%;
+}
